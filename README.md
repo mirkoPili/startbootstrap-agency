@@ -1,31 +1,26 @@
-# Agency by Start Bootstrap [![Build Status](https://travis-ci.org/IronSummitMedia/startbootstrap-agency.svg?branch=master)](https://travis-ci.org/IronSummitMedia/startbootstrap-agency)
+# [Start Bootstrap](http://startbootstrap.com/) - [Stylish Portfolio](http://startbootstrap.com/template-overviews/stylish-portfolio/)
 
-Agency is a one page HTML theme for agencies created by Start Bootstrap. This repository is a pre-release that we are using to test integrating themes with Grunt, Bower, and ultimately, creating Yeoman and Brunch scaffolds for all of our open source templates and themes.
+[Stylish Portfolio](http://startbootstrap.com/template-overviews/stylish-portfolio/) is a responsive, one page portfolio theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). The theme features multiple content sections with an off canvas navigation menu.
 
-To access the current version of this template, visit http://startbootstrap.com/template-overviews/agency/.
+## Getting Started
 
-## Screenshot
-![](http://sbootstrap.startbootstrapc.netdna-cdn.com/assets/img/templates/agency.jpg)
+To use this template, choose one of the following options to get started:
+* Download the latest release on Start Bootstrap
+* Fork this repository on GitHub
 
-## Installation
+## Bugs and Issues
 
-- Fork the source files from this repository.
-- Run `npm install` in the root directory to install Grunt dependencies.
-- Run `bower install` in the root directory to install Bower dependencies.
+Have a bug or an issue with this theme? [Open a new issue](https://github.com/IronSummitMedia/startbootstrap-stylish-portfolio/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/stylish-portfolio/).
 
-You are now ready to work with the theme! Feel free to edit the Gruntfile as you see fit. It's recommended that you have a working knowledge of Grunt and Bower before attempting to use these source files. If you want the easy to use, HTML/CSS version of this template, you can download it at http://startbootstrap.com/template-overviews/agency/.
+## Creator
 
-## Grunt Tasks
+Start Bootstrap was created by and is maintained by **David Miller**, Managing Parter at [Iron Summit Media Strategies](http://www.ironsummitmedia.com/).
 
-- `grunt` will run all Grunt tasks. It will build the dist folder based on the specifications set up in the Gruntfile.
-- `grunt watch` will watch specified files for changes, and automatically build them within the dist folder.
+* https://twitter.com/davidmillerskt
+* https://github.com/davidtmiller
 
-## Support
+Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
 
-If you have questions about the theme you can submit an issue here on GitHub or you can leave a comment on the theme overview page on Start Bootstrap at http://startbootstrap.com/template-overviews/agency/.
+## Copyright and License
 
-## Contributing
-
-If you have fixed a bug with the template feel free to open a pull request and I will review and merge the request.
-
-*NOTE: Pull requests with new features will most likely not be added to the base theme! The templates and themes on Start Bootstrap are meant to be starting points for people to work off of, and I don't typically add any new feature unless they are frequently asked for.*
+Copyright 2014 Iron Summit Media Strategies, LLC. Code released under the [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-stylish-portfolio/blob/gh-pages/LICENSE) license.
