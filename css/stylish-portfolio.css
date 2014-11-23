@@ -148,6 +148,8 @@ hr.small {
     margin: 5px 5px 0 0;
 }
 
+
+
 /* Header */
 
 .header {
@@ -161,6 +163,11 @@ hr.small {
     background-size: cover;
     -o-background-size: cover;
 }
+
+.img-responsive {
+    margin: 0 auto;
+}
+
 
 /* About */
 
@@ -178,8 +185,15 @@ hr.small {
     margin-bottom: 30px;
 }
 
-/* Callout */
 
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Callout */
 .callout {
     display: table;
     width: 100%;
