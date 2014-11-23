@@ -196,6 +196,7 @@ hr.small {
 /* Callout */
 .callout {
     display: table;
+    position: relative;
     width: 100%;
     height: 400px;
     color: #fff;
