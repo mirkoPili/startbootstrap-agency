@@ -15,11 +15,6 @@ body {
 body {
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-.service-row {
-  white-space: nowrap;
-  margin-right: -15px;
-  margin-left: -15px;
-}
 .text-vertical-center {
     display: table-cell;
     text-align: center;
