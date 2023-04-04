@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Data Modeling Manifesto</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="the-data-modeling-manifesto">The Data Modeling Manifesto</h1>
+<ol>
+<li>
+<h3 id="form-follows-function---business-goals-come-first-data-model-will-forever-be-derived-from-user-needs"><strong>Form Follows Function</strong> - Business goals come first<sup class="footnote-ref"><a href="#fn1" id="fnref1">1</a></sup>; Data model will forever be derived from user needs:</h3>
+</li>
+<li>
+<p><strong>(User) business goals</strong> drive <strong>decisions</strong> that need making.</p>
+</li>
+<li>
+<p>The decision-making needs drive which <strong>(user) questions</strong> need answering.</p>
+</li>
+<li>
+<p>The questions you need answered drive which <strong>data</strong> is needed (by the user) in order to answer them, and in which form. <em>This is your data model</em>.</p>
+</li>
+<li>
+<h3 id="data-models-are-expensive-to-maintain-so-reduce-reuse-and-merge">Data models are expensive to maintain, so: <strong>Reduce, Reuse, and Merge</strong></h3>
+</li>
+<li>
+<p><strong>Reduce</strong> the number of unique models sent downstream, it would make life simpler for your consumers. Don’t dump everything downstream, it creates usability, cost, and security issues. However, if is indeed required that additional data is to be sent, stored, and consumed, ship it, name it, tag it and document it in a manner that enables consumer to understand what it is that they are consuming, how if and when should they process the data, and how does each datapoint relate to other datapoints.</p>
+</li>
+<li>
+<p><strong>Reuse</strong> and extend common models, names, and tags instead of adding new ones whenever possible, this will minimize company-wide model span (so it is less complex overall) and will make sure your change will reach all relevant consumers.</p>
+</li>
+<li>
+<p><strong>Merge</strong> atomic data points to reflect their context -Data that is sent downstream should reflect context by consolidating several atomic data points to form a more complete picture. Grouping and aggregating data into sets, objects, lists, lines, documents, events, tables, hierarchies, or even files based on some heuristic has intrinsic value and can help consumers make sense of complex models and processes by analyzing the data that is relevant to them in its proper context.</p>
+</li>
+<li>
+<h3 id="metadata-should-not-be-neglected-or-forgotten."><strong>Metadata</strong> should not be neglected or forgotten.</h3>
+<ol>
+<li><strong>Everything has its time and place</strong> - data is a transient thing, when sending data, it is true from a certain perspective (the senders’) and to some point in time (when was it recorded? When was it received? How much can you trust these timestamps?). Make sure to note both.</li>
+<li>" <strong>Handle with care" tags are mandatory</strong> - some data requires special treatment, whether it is <em>PII, financial, IDs, index keys,</em> or some other unique case, tagging data as such would help prevent consumers from mishandling it.</li>
+<li><strong>Sound body, sound mind</strong> - Define health metrics and smells for your data: a revenue field in a purchase event may be expected to forever contain positive numbers, a counter field may be expected to monotonically rise, etc.</li>
+</ol>
+</li>
+<li>
+<h3 id="interface-over-implementation"><strong>Interface over Implementation</strong></h3>
+<ol>
+<li><strong>Meaning is more important than implementation</strong> - Data is a means for representing information, and that information should have a meaning. When representing information, the data types we choose can be extremely specific or extremely vague, but our business needs are exact. Prefer meaningful types and names (use your organization’s <a href="https://www.oreilly.com/library/view/domain-driven-design-tackling/0321125215/">ubiquitous language</a>!) over those that reflect internal implementation - Count is better than Integer which in turn is better than Number, UUID is better than ID which is of course better than String, Sets and Ordered Lists are better than Arrays, etc.<sup class="footnote-ref"><a href="#fn2" id="fnref2">2</a></sup>.</li>
+<li>Make sure to <strong>design your model in tandem</strong> with the intended (initial) user. <em>DO</em> suit their business goals and needs, <em>DON’T</em> accommodate for your internal implementation constraints.</li>
+<li><strong>Design it to be changed</strong> - You have no idea what will have to change in the (near OR far) future, make sure to accommodate for that (use versioning, optional fields, etc.) while keeping in mind that some things are inherent to the model and should never change (these are usually your ‘required’ fields).</li>
+</ol>
+</li>
+<li>
+<h3 id="data-models-systems-and-data-modeling-systems">Data, models, systems, and <strong>data modeling systems</strong></h3>
+<ol>
+<li>As data is representative of facts (as far as the source can tell) and models are derived from business needs, <strong>no data, models, or data models should be affected by changes in the data transport system(s), their design or implementation</strong>. Field names and values, event names, the result of a measurement, or a user identifier will all remain the same regardless of the system that is responsible for reporting it.</li>
+<li>To keep track of your models, <strong>a bookkeeping system (glossary, registry) must be in place, as well as the processes around it</strong>. Defining roles and responsibilities around the creation, storage and retrieval of models is key to keeping data velocity in producing and consuming teams high.</li>
+<li>Storage is cheap, compute is expensive - <strong>store partial results and aggregations in a way that would benefit future reference and use</strong>. This would lower cost of ownership and reduce model divergence, especially when managing complex model structures and analysis. The set of actions performed by a user during their 1st session using your product may be used, for example, for <em>LTV prediction</em> as well as <em>popular feature analysis</em>, and <em>churn/friction analysis</em>, separating aggregation from analysis would help optimize your pipeline for any use case and business need that may arise in the future.</li>
+</ol>
+</li>
+</ol>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Data is stored for a to serve a single purpose – to meet some business needs for some consumer. Whether that consumer (=data user) is internal to the company or is a client has no effect on the process – they still have some goal or need that should be met and require the same level of diligence in modeling data for their consumption and use. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Leaving a field as String knowing sources will populate them with non-schema controlled (or worse yet, unmodelled) structured data (such as JSON, XML, dumps, etc.) through it should be avoided at all costs, as even the existence of these “path of least resistance” fields is tempting data source developers to bypass the desired modelling process. The risk posed by these fields, that there would exist some business-critical model that will not be tracked and managed as part of the normal flow of data in the company precludes any benefit one may derive from allowing such field to exist. Just like you would not allow any rouge source code to be added to a product without proper code review, version control and testing, so shouldn’t rouge data models exist in your product. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+</div>
+</body>
+
+</html>
